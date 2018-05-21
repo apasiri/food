@@ -1,0 +1,25 @@
+<ion-header>
+
+    <ion-navbar color="PK">
+        <button ion-button menuToggle>
+            <ion-icon name="menu"></ion-icon>
+        </button>
+      <ion-title>รับเรื่องรายงาน</ion-title>
+    </ion-navbar>
+  
+  </ion-header>
+
+
+<ion-content padding>
+
+    <ion-list menuClose ion-item *ngFor="let report of reportList">
+        <button menuClose ion-item>
+            ReportID {{report.report_toid}}<br>
+            <ion-item text-wrap>
+            รายละเอียด : {{report.report_comment}}
+            </ion-item>
+        </button> 
+    </ion-list>
+
+
+</ion-content>

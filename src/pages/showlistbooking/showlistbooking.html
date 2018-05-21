@@ -1,0 +1,54 @@
+<ion-header>
+
+  <ion-navbar color="PK">
+    <ion-title>รายละเอียดการจอง</ion-title>
+  </ion-navbar>
+
+</ion-header>
+
+
+<ion-content padding>
+
+    <ion-item color="menu">
+        <ion-label>[รายการอาหารที่สั่งจอง]</ion-label>
+    </ion-item>
+    <br>
+    <ion-item *ngIf="confrim">
+      {{confrim}}
+    </ion-item>
+    
+    <ion-item>
+        <ion-label>Order Time : </ion-label>
+        <ion-datetime displayFormat="DD MMM, YYYY HH:mm" [(ngModel)]="time"></ion-datetime>
+    </ion-item>
+    <ion-list menuClose ion-item *ngFor="let orders of detailList">
+      <ion-item>
+          <h2>{{orders.detai_menu_name}}</h2><br>
+          <h3>สั่งซื้อ : {{orders.detail_menu_amount}} รายการ | ราคา : {{orders.detail_menu_price}} บาท</h3>
+      </ion-item>
+    </ion-list>
+    <ion-item>
+      <h3>ราคารวมต้องชำระ : {{total}} บาท</h3>
+    </ion-item>
+    <ion-item *ngIf="check">
+        <ion-row>
+            <img [src]="base64Image" *ngIf="base64Image" noshade="noshade" width="100%" height="100%" size="3">
+            <img *ngIf="!base64Image" noshade="noshade" width="100%" height="100%" size="3">
+        <button ion-button icon-left clear small (click)="takePicture()">
+            <ion-icon name="camera"></ion-icon>
+            <div>Camera</div>
+          </button>     
+          <button ion-button icon-left clear small (click)="browsePicture()">
+            <ion-icon name="folder-open"></ion-icon>
+            <div>Browse</div>
+          </button>
+          <button ion-button icon-left clear small color="danger" 
+          (click)="removePicture()" [disabled]="!base64Image">
+            <ion-icon name="trash"></ion-icon>
+            <div>Remove</div>
+          </button>
+        </ion-row>
+        <button ion-button color="btn" (click)="sendOrderpayment(total,store_id)" block><ion-icon name="md-add"></ion-icon>&nbsp;&nbsp;อัพโหลดหลักฐานการชำระเงิน</button>
+    </ion-item>
+
+</ion-content>

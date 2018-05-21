@@ -1,0 +1,50 @@
+<ion-header>
+
+    <ion-navbar color="PK">
+        <button ion-button menuToggle>
+            <ion-icon name="menu"></ion-icon>
+        </button>
+      <ion-title>ข้อมูลส่วนตัว</ion-title>
+    </ion-navbar>
+  
+  </ion-header>
+
+
+<ion-content padding>
+  <ion-item color="menu">
+      <ion-grid>
+          <ion-row justify-content-center align-items-center >
+            <h5>Member ID : {{memberid}}</h5>  
+          </ion-row>
+      </ion-grid>
+  </ion-item>
+          <ion-grid>
+            <ion-row justify-content-center align-items-center>
+                <img [src]="img" *ngIf="img" alt="Avatar">
+            </ion-row>
+          </ion-grid>
+            <ion-item>
+              <ion-label>ชื่อ : {{user_name}}</ion-label>
+            </ion-item>
+      
+            <ion-item>
+                <ion-label>เพศ : {{user_sex}}</ion-label>
+            </ion-item>
+
+            <ion-item>
+              <ion-label>E-mail : {{user_Email}}</ion-label>
+            </ion-item>
+      
+            <ion-item>
+                <ion-label>เบอร์โทรศัพท์ : {{user_phone}}</ion-label>
+            </ion-item>
+
+            <ion-item>
+              <ion-label>Personal ID : {{user_personalID}}</ion-label>
+            </ion-item>
+          
+            <div padding>
+                <button (click)="goEdit()" ion-button color="btn" block>แก้ไขข้อมูลส่วนตัว</button>
+            </div>
+
+</ion-content>

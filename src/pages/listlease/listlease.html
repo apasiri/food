@@ -1,0 +1,42 @@
+<ion-header>
+
+    <ion-navbar color="PK">
+        <button ion-button menuToggle>
+            <ion-icon name="menu"></ion-icon>
+        </button>
+      <ion-title>รายการเช่าร้าน</ion-title>
+    </ion-navbar>
+  
+  </ion-header>
+
+
+<ion-content padding>
+    <ion-item color="menu">
+        <h4>(เพิ่มช่องทางการชำระเงิน)</h4>
+    </ion-item> 
+      <ion-list>
+        <ion-item>
+            <ion-label floating>กรอกข้อมูล (เช่น ชื่อ-สกุล เลขที่บัญชีธนาคาร)</ion-label>
+            <ion-textarea [(ngModel)]="pay_detail"></ion-textarea>
+        </ion-item>
+      </ion-list>
+      <div padding>
+        <button (click)="doPayment()" color="btn" ion-button [disabled]="!pay_detail" block> เพิ่มช่องทางการชำระเงิน</button>
+      </div>
+    <ion-list menuClose ion-item *ngFor="let payCh of payList">
+      <button menuClose ion-item (click)="delectpayAdmin(payCh.pay_id)">
+          <ion-item text-wrap>
+              <h2>{{payCh.pay_detail}}</h2>
+          </ion-item>
+      </button>
+  </ion-list>
+  <ion-item color="menu">
+      <h4>(รายการขอเพิ่มระยะเวลาเปิดร้าน)</h4>
+  </ion-item>
+  <ion-list menuClose ion-item *ngFor="let l of leaseList">
+      <button menuClose ion-item (click)="addTime(l.lease_id)">
+          <h2>Req from ID : {{l.lease_user_id}} {{l.lease_addtime}}</h2>
+      </button>
+  </ion-list>
+
+</ion-content>

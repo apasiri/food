@@ -1,0 +1,36 @@
+<ion-header>
+
+  <ion-navbar color="PK">
+    <ion-title>เพิ่มระยะเวลาการเช่าร้าน</ion-title>
+  </ion-navbar>
+
+</ion-header>
+
+
+<ion-content padding>
+
+    <ion-grid>
+        <ion-row justify-content-center align-items-center>
+            <img [src]="lease_img" *ngIf="lease_img" alt="Avatar">
+        </ion-row>
+    </ion-grid>
+    <ion-grid>
+        <ion-row justify-content-center align-items-center>
+            <img *ngIf="!lease_img" alt="Avatar">
+        </ion-row>
+    </ion-grid>
+    <ion-item>
+        <ion-label>ต้องการต่อระยะเวลา</ion-label>
+        <ion-select [(ngModel)]="lease_addtime" placeholder="กดเลือก">
+            <ion-option value="0">เพิ่มระยะเวลาเสร็จสิ้น</ion-option>
+            <ion-option value="1"> 60 วัน 50  ฿</ion-option>
+            <ion-option value="2"> 90 วัน 60  ฿</ion-option>
+            <ion-option value="3">180 วัน 90  ฿</ion-option>
+            <ion-option value="4">365 วัน 130 ฿</ion-option>
+        </ion-select>
+    </ion-item>
+    <div padding>
+        <button (click)="doAddTime(lease_user_id)" ion-button color="btn" block>เพิ่มเวลา</button>
+    </div>
+
+</ion-content>

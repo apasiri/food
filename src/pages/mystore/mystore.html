@@ -1,0 +1,89 @@
+<ion-header>
+
+    <ion-navbar color="PK">
+        <button ion-button menuToggle>
+            <ion-icon name="menu"></ion-icon>
+        </button>
+      <ion-title>ร้านของฉัน</ion-title>
+    </ion-navbar>
+  
+  </ion-header>
+
+
+<ion-content padding>
+
+    <ion-list>
+        <ion-item color="menu">
+            <ion-grid>
+                <ion-row justify-content-center align-items-center >
+                  <h5>Store ID : {{store_id}}</h5>  
+                </ion-row>
+            </ion-grid>
+        </ion-item>
+          <ion-grid>
+            <ion-row justify-content-center align-items-center>
+                <img [src]="store_img" *ngIf="store_img" alt="Avatar">
+            </ion-row>
+          </ion-grid>
+
+            <ion-item>
+              <ion-label>ชื่อร้าน : {{store_name}}</ion-label>
+            </ion-item>
+      
+            <ion-item text-wrap>
+                <ion-label>ที่อยู่ : {{store_address}} ต. {{store_Subarea}} อ. {{store_area}} จ. {{store_Province}}</ion-label>
+            </ion-item>
+         
+            <ion-item text-wrap>
+              <ion-label>ติดต่อ : {{store_contact}}</ion-label>
+            </ion-item>
+            <ion-item>
+                <ion-label>วันหมดอายุ : </ion-label>
+                <ion-datetime displayFormat="DD MMM, YYYY HH:mm" [(ngModel)]="store_modifydate"></ion-datetime>
+            </ion-item>
+            <div padding>
+                <button ion-button small (click)="EditStore()" ><ion-icon name="md-create"></ion-icon> ข้อมูลร้าน</button>
+                <button ion-button small (click)="updateLocation()" ><ion-icon name="md-pin"></ion-icon> Locations</button>
+                <button ion-button small (click)="doLease()" ><ion-icon name="md-add-circle"></ion-icon> เพิ่มเวลา</button>
+            </div>
+
+
+          <ion-item color="menu">
+              <h4>(รายละเอียดช่องทางการชำระเงิน)</h4>
+          </ion-item> 
+            <ion-list>
+              <ion-item>
+                  <ion-label floating>กรอกข้อมูล (เช่น ชื่อ-สกุล เลขที่บัญชีธนาคาร)</ion-label>
+                  <ion-textarea [(ngModel)]="PayChannel_detail"></ion-textarea>
+              </ion-item>
+            </ion-list>
+            <div padding>
+              <button (click)="doPayment(store_id)" color="btn" ion-button [disabled]="!PayChannel_detail" block> เพิ่มช่องทางการชำระเงิน</button>
+            </div>
+          <ion-list menuClose ion-item *ngFor="let payCh of PayChannelList">
+            <button menuClose ion-item (click)="delectPayCh(payCh.PayChannel_id)">
+                <ion-item text-wrap>
+                    <h2>{{payCh.PayChannel_detail}}</h2>
+                </ion-item>
+            </button>
+          </ion-list>
+          <ion-item color="menu">
+              <h4>(รายการอาหาร)</h4>
+          </ion-item>
+          <ion-list menuClose ion-item *ngFor="let m of menuList">
+              <button menuClose ion-item (click)="EditMenu(m.menu_id)">
+                ชื่อเมนู : {{m.menu_name}}
+              </button>
+          </ion-list>
+          <div padding>
+              <button (click)="goAddMenu(store_id)" ion-button color="btn" block> เพิ่มรายการอาหาร</button>
+          </div>
+          
+          
+
+
+    </ion-list>
+
+
+
+</ion-content>

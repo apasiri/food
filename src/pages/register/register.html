@@ -1,0 +1,123 @@
+<ion-header>
+
+  <ion-navbar color="PK">
+      <button ion-button menuToggle>
+          <ion-icon name="menu"></ion-icon>
+      </button>
+    <ion-title>สมัครสมาชิก</ion-title>
+  </ion-navbar>
+
+</ion-header>
+
+
+<ion-content padding>
+    <ion-item color="menu">
+      <h5>** กรุณาทำตามเงื่อนไขเพื่อความปลอดภัยในการใช้งานแอพสำหรับตัวท่าน **</h5>
+    </ion-item>
+    
+    <br>
+    <h6>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+       1.&nbsp;กรอกข้อมูลจริงในการสมัครสมาชิก</h6>
+    <h6>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+       2.&nbsp;ใช้รูปบัตรประชาชนตัวจริงของผู้สมัครห้ามใช้ของบุคคลอื่น</h6>
+    <h6>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+       -&nbsp;ภาพบัตรประชาชนเป็นภาพสี</h6>
+    <h6>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+       -&nbsp;ภาพบัตรประชาชนมีความชัดเจนดังรูปตัวอย่าง</h6>
+
+       <ion-grid>
+          <ion-row>
+            <ion-col>
+              
+            </ion-col>
+            <ion-col class="accordion">
+              <img src="https://www.picz.in.th/images/2018/04/12/Y9L6Mg.jpg" border="0" />
+            </ion-col>
+            <ion-col>
+              
+            </ion-col>
+          </ion-row>
+      </ion-grid>
+
+      <h6>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+          3.&nbsp;หากมีการกระทำความผิดหลังจากเป็นสมาชิกระบบสามารถทำการระงับบัญชีโดยไม่ต้องแจ้งให้ทราบล่วงหน้า</h6>
+    <br>
+    <ion-item color="menu">
+      <h5>(* กรอกข้อมูลให้ครบทุกช่องเพื่อทำการสมัครสมาชิก)</h5>
+    </ion-item>  
+
+    
+    <ion-list>
+      <ion-item>
+        <ion-label floating>Username (* ใช้อักษรอังกฤษไม่เกิน 14 อักษร)</ion-label>
+        <ion-input type="text" [(ngModel)]="user_username"></ion-input>
+      </ion-item>
+
+      <ion-item>
+        <ion-label floating>Password (*)</ion-label>
+        <ion-input type="password" [(ngModel)]="user_password"></ion-input>
+      </ion-item>
+
+      <ion-item>
+          <ion-label floating>Password (* ยืนยัน)</ion-label>
+          <ion-input type="password" [(ngModel)]="user_passwordcheck"></ion-input>
+      </ion-item>
+
+      <ion-item>
+        <ion-label floating>ชื่อ</ion-label>
+        <ion-input type="text" [(ngModel)]="user_name"></ion-input>
+      </ion-item>
+      <br>
+      <ion-item>
+          <ion-label>ระบุบเพศ</ion-label>
+          <ion-select [(ngModel)]="user_sex" placeholder="ชาย/หญิง">
+              <ion-option value="หญิง">หญิง</ion-option>
+              <ion-option value="ชาย">ชาย</ion-option>
+          </ion-select>
+      </ion-item>
+      
+      <ion-item>
+        <ion-label floating>E-mail</ion-label>
+        <ion-input type="text" [(ngModel)]="user_email"></ion-input>
+      </ion-item>
+
+      <ion-item>
+          <ion-label floating>เบอร์โทรศัพท์</ion-label>
+          <ion-input type="text" [(ngModel)]="user_phonenumber"></ion-input>
+      </ion-item>
+      
+      <ion-item>
+        <ion-label floating>รหัสบัตรประชาชน (ตัวเลข 13 หลักไม่เว้นวรรค)</ion-label>
+        <ion-input type="text" [(ngModel)]="user_personalid"></ion-input>
+      </ion-item>
+      <br>
+    </ion-list>
+    <h6>(* เพิ่มรูปถ่ายบัตรประชาชน)</h6>
+    <ion-row>
+        <img [src]="base64Image" *ngIf="base64Image" noshade="noshade" width="100%" height="100%" size="3">
+        <img *ngIf="!base64Image" noshade="noshade" width="100%" height="100%" size="3">
+    <button ion-button icon-left clear small (click)="takePicture()">
+        <ion-icon name="camera"></ion-icon>
+        <div>Camera</div>
+      </button>     
+      <button ion-button icon-left clear small (click)="browsePicture()">
+        <ion-icon name="folder-open"></ion-icon>
+        <div>Browse</div>
+      </button>
+      <button ion-button icon-left clear small color="danger" 
+      (click)="removePicture()" [disabled]="!base64Image">
+        <ion-icon name="trash"></ion-icon>
+        <div>Remove</div>
+      </button>
+    </ion-row>
+    <div padding>
+      <button (click)="doRegister()" [disabled]="!user_username || !user_password || !user_passwordcheck || !user_name || !user_sex || !user_email || !user_phonenumber || !user_personalid " ion-button color="btn" block>สมัครสมาชิก</button>
+    </div>
+    <br>
+    <ion-item color="menu">
+       
+    </ion-item>
+    
+
+
+</ion-content>

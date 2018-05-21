@@ -1,0 +1,157 @@
+<!--
+  Generated template for the EditstorePage page.
+
+  See http://ionicframework.com/docs/components/#navigation for more info on
+  Ionic pages and navigation.
+-->
+<ion-header>
+
+    <ion-navbar color="PK">
+        <ion-title>แก้ไขข้อมูลร้าน</ion-title>
+    </ion-navbar>
+
+</ion-header>
+
+
+<ion-content padding>
+
+    <ion-list>
+        <ion-item>
+          <ion-label floating>ชื่อร้าน</ion-label>
+          <ion-input type="text" [(ngModel)]="store_name">{{store_name}}</ion-input>
+        </ion-item>
+
+        <ion-item>
+            <ion-label floating>ที่อยู่ (ตัวอย่าง 24/15 ซอย 5 ถนน พหลโยธิน)</ion-label>
+            <!--<ion-input type="text" [(ngModel)]="news_story"></ion-input>-->
+            <ion-textarea [(ngModel)]="store_address">{{store_address}}</ion-textarea>
+        </ion-item>
+  
+        <ion-item>
+            <ion-label floating>ตำบล</ion-label>
+            <ion-input type="text" [(ngModel)]="store_Subarea">{{store_Subarea}}</ion-input>
+        </ion-item>
+
+        <ion-item>
+            <ion-label floating>อำเภอ</ion-label>
+            <ion-input type="text" [(ngModel)]="store_area">{{store_area}}</ion-input>
+        </ion-item>
+        <br>
+        <ion-item>
+            <ion-label>จังหวัด</ion-label>
+            <ion-select [(ngModel)]="store_Province">
+                <ion-option value="กรุงเทพมหานคร">กรุงเทพมหานคร</ion-option>
+                <ion-option value="กระบี่">กระบี่ </ion-option>
+                <ion-option value="กาญจนบุรี">กาญจนบุรี </ion-option>
+                <ion-option value="กาฬสินธุ์">กาฬสินธุ์ </ion-option>
+                <ion-option value="กำแพงเพชร">กำแพงเพชร </ion-option>
+                <ion-option value="ขอนแก่น">ขอนแก่น</ion-option>
+                <ion-option value="จันทบุรี">จันทบุรี</ion-option>
+                <ion-option value="ฉะเชิงเทรา">ฉะเชิงเทรา </ion-option>
+                <ion-option value="ชัยนาท">ชัยนาท </ion-option>
+                <ion-option value="ชัยภูมิ">ชัยภูมิ </ion-option>
+                <ion-option value="ชุมพร">ชุมพร </ion-option>
+                <ion-option value="ชลบุรี">ชลบุรี </ion-option>
+                <ion-option value="เชียงใหม่">เชียงใหม่ </ion-option>
+                <ion-option value="เชียงราย">เชียงราย </ion-option>
+                <ion-option value="ตรัง">ตรัง </ion-option>
+                <ion-option value="ตราด">ตราด </ion-option>
+                <ion-option value="ตาก">ตาก </ion-option>
+                <ion-option value="นครนายก">นครนายก </ion-option>
+                <ion-option value="นครปฐม">นครปฐม </ion-option>
+                <ion-option value="นครพนม">นครพนม </ion-option>
+                <ion-option value="นครราชสีมา">นครราชสีมา </ion-option>
+                <ion-option value="นครศรีธรรมราช">นครศรีธรรมราช </ion-option>
+                <ion-option value="นครสวรรค์">นครสวรรค์ </ion-option>
+                <ion-option value="นราธิวาส">นราธิวาส </ion-option>
+                <ion-option value="น่าน">น่าน </ion-option>
+                <ion-option value="นนทบุรี">นนทบุรี </ion-option>
+                <ion-option value="บึงกาฬ">บึงกาฬ</ion-option>
+                <ion-option value="บุรีรัมย์">บุรีรัมย์</ion-option>
+                <ion-option value="ประจวบคีรีขันธ์">ประจวบคีรีขันธ์ </ion-option>
+                <ion-option value="ปทุมธานี">ปทุมธานี </ion-option>
+                <ion-option value="ปราจีนบุรี">ปราจีนบุรี </ion-option>
+                <ion-option value="ปัตตานี">ปัตตานี </ion-option>
+                <ion-option value="พะเยา">พะเยา </ion-option>
+                <ion-option value="พระนครศรีอยุธยา">พระนครศรีอยุธยา </ion-option>
+                <ion-option value="พังงา">พังงา </ion-option>
+                <ion-option value="พิจิตร">พิจิตร </ion-option>
+                <ion-option value="พิษณุโลก">พิษณุโลก </ion-option>
+                <ion-option value="เพชรบุรี">เพชรบุรี </ion-option>
+                <ion-option value="เพชรบูรณ์">เพชรบูรณ์ </ion-option>
+                <ion-option value="แพร่">แพร่ </ion-option>
+                <ion-option value="พัทลุง">พัทลุง </ion-option>
+                <ion-option value="ภูเก็ต">ภูเก็ต </ion-option>
+                <ion-option value="มหาสารคาม">มหาสารคาม </ion-option>
+                <ion-option value="มุกดาหาร">มุกดาหาร </ion-option>
+                <ion-option value="แม่ฮ่องสอน">แม่ฮ่องสอน </ion-option>
+                <ion-option value="ยโสธร">ยโสธร </ion-option>
+                <ion-option value="ยะลา">ยะลา </ion-option>
+                <ion-option value="ร้อยเอ็ด">ร้อยเอ็ด </ion-option>
+                <ion-option value="ระนอง">ระนอง </ion-option>
+                <ion-option value="ระยอง">ระยอง </ion-option>
+                <ion-option value="ราชบุรี">ราชบุรี</ion-option>
+                <ion-option value="ลพบุรี">ลพบุรี </ion-option>
+                <ion-option value="ลำปาง">ลำปาง </ion-option>
+                <ion-option value="ลำพูน">ลำพูน </ion-option>
+                <ion-option value="เลย">เลย </ion-option>
+                <ion-option value="ศรีสะเกษ">ศรีสะเกษ</ion-option>
+                <ion-option value="สกลนคร">สกลนคร</ion-option>
+                <ion-option value="สงขลา">สงขลา </ion-option>
+                <ion-option value="สมุทรสาคร">สมุทรสาคร </ion-option>
+                <ion-option value="สมุทรปราการ">สมุทรปราการ </ion-option>
+                <ion-option value="สมุทรสงคราม">สมุทรสงคราม </ion-option>
+                <ion-option value="สระแก้ว">สระแก้ว </ion-option>
+                <ion-option value="สระบุรี">สระบุรี </ion-option>
+                <ion-option value="สิงห์บุรี">สิงห์บุรี </ion-option>
+                <ion-option value="สุโขทัย">สุโขทัย </ion-option>
+                <ion-option value="สุพรรณบุรี">สุพรรณบุรี </ion-option>
+                <ion-option value="สุราษฎร์ธานี">สุราษฎร์ธานี </ion-option>
+                <ion-option value="สุรินทร์">สุรินทร์ </ion-option>
+                <ion-option value="สตูล">สตูล </ion-option>
+                <ion-option value="หนองคาย">หนองคาย </ion-option>
+                <ion-option value="หนองบัวลำภู">หนองบัวลำภู </ion-option>
+                <ion-option value="อำนาจเจริญ">อำนาจเจริญ </ion-option>
+                <ion-option value="อุดรธานี">อุดรธานี </ion-option>
+                <ion-option value="อุตรดิตถ์">อุตรดิตถ์ </ion-option>
+                <ion-option value="อุทัยธานี">อุทัยธานี </ion-option>
+                <ion-option value="อุบลราชธานี">อุบลราชธานี</ion-option>
+                <ion-option value="อ่างทอง">อ่างทอง </ion-option>
+            </ion-select>
+          </ion-item>
+
+        <ion-item>
+            <ion-label floating>ติดต่อ (เช่น @LineID 222app @FB foodApp)</ion-label>
+            <ion-input type="text" [(ngModel)]="store_contact">{{store_contact}}</ion-input>
+        </ion-item>
+        
+        <ion-item>
+            <ion-label floating>สถานะการเปิดร้าน</ion-label>
+            <ion-select [(ngModel)]="store_status">
+                <ion-option value="0">เปิด</ion-option>
+                <ion-option value="1">ปิด</ion-option>
+            </ion-select>
+        </ion-item>
+      </ion-list>
+      <h6>(* แก้ไขรูปร้าน)</h6>
+      <ion-row>
+          <img [src]="base64Image" *ngIf="base64Image" noshade="noshade" width="100%" height="100%" size="3">
+          <img [src]="store_img" *ngIf="!base64Image" noshade="noshade" width="100%" height="100%" size="3">
+      <button ion-button icon-left clear small (click)="takePicture()">
+          <ion-icon name="camera"></ion-icon>
+          <div>Camera</div>
+        </button>     
+        <button ion-button icon-left clear small (click)="browsePicture()">
+          <ion-icon name="folder-open"></ion-icon>
+          <div>Browse</div>
+        </button>
+        <button ion-button icon-left clear small color="danger" 
+        (click)="removePicture()" [disabled]="!base64Image">
+          <ion-icon name="trash"></ion-icon>
+          <div>Remove</div>
+        </button>
+      </ion-row>
+      <div padding>
+        <button (click)="doEdit()" ion-button color="btn" block>บันทึกข้อมูล</button>
+      </div>
+</ion-content>

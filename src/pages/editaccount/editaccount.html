@@ -1,0 +1,66 @@
+<ion-header >
+
+  <ion-navbar color="PK">
+      <button ion-button menuToggle>
+          <ion-icon name="menu"></ion-icon>
+      </button>
+    <ion-title>แก้ไขข้อมูลส่วน</ion-title>
+  </ion-navbar>
+
+</ion-header>
+
+
+<ion-content padding>
+    <ion-list>
+      <ion-item>
+        <ion-label floating>ชื่อ</ion-label>
+        <ion-input type="text" [(ngModel)]="user_name">{{user_name}}</ion-input>
+      </ion-item>
+      
+      <ion-item>
+          <ion-label floating>เพศ</ion-label>
+          <ion-select [(ngModel)]="user_sex">
+              <ion-option value="หญิง">หญิง</ion-option>
+              <ion-option value="ชาย">ชาย</ion-option>
+          </ion-select>
+      </ion-item>
+      
+      <ion-item>
+        <ion-label floating>E-mail</ion-label>
+        <ion-input type="text" [(ngModel)]="user_Email">{{user_Email}}</ion-input>
+      </ion-item>
+
+      <ion-item>
+          <ion-label floating>เบอร์โทรศัพท์</ion-label>
+          <ion-input type="text" [(ngModel)]="user_phone">{{user_phone}}</ion-input>
+      </ion-item>
+      
+      <ion-item>
+        <ion-label floating>รหัสบัตรประชาชน</ion-label>
+        <ion-input type="text" [(ngModel)]="user_personalID">{{user_personalID}}</ion-input>
+      </ion-item>
+      <br>
+    </ion-list>
+    <h6>(* แก้ไขรูปProfile)</h6>
+    <ion-row>
+        <img [src]="base64Image" *ngIf="base64Image" noshade="noshade" width="100%" height="100%" size="3">
+        <img [src]="img" *ngIf="!base64Image" noshade="noshade" width="100%" height="100%" size="3">
+    <button ion-button icon-left clear small (click)="takePicture()">
+        <ion-icon name="camera"></ion-icon>
+        <div>Camera</div>
+      </button>     
+      <button ion-button icon-left clear small (click)="browsePicture()">
+        <ion-icon name="folder-open"></ion-icon>
+        <div>Browse</div>
+      </button>
+      <button ion-button icon-left clear small color="danger" 
+      (click)="removePicture()" [disabled]="!base64Image">
+        <ion-icon name="trash"></ion-icon>
+        <div>Remove</div>
+      </button>
+    </ion-row>
+    <div padding>
+      <button (click)="doEdit()" ion-button color="btn" block>บันทึกข้อมูล</button>
+    </div>
+
+</ion-content>

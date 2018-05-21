@@ -1,0 +1,33 @@
+<ion-header>
+
+    <ion-navbar color="PK">
+        <button ion-button menuToggle>
+            <ion-icon name="menu"></ion-icon>
+        </button>
+      <ion-title>เขียนรายงาน</ion-title>
+    </ion-navbar>
+  
+  </ion-header>
+
+
+<ion-content padding>
+
+            <ion-item color="menu">
+                <h5>เขียนรายงานความผิด/เขียนสอบถามข้อมูล</h5>
+            </ion-item> 
+     
+              <ion-item>
+                <ion-label floating>(กรอก ID **เช่น storeid 15)</ion-label>
+                <ion-input type="text" [(ngModel)]="report_toid"></ion-input>
+              </ion-item>
+              
+              <ion-item col="300">
+                  <ion-label floating>กรอกรายละเอียด</ion-label>
+                  <!--<ion-input type="text" [(ngModel)]="news_story"></ion-input>-->
+                  <ion-textarea [(ngModel)]="report_comment"></ion-textarea>
+              </ion-item>
+              <div padding>
+                    <button (click)="doneReport()" ion-button color="btn" block><ion-icon name="md-mail"></ion-icon>&nbsp;&nbsp;ส่งรายงาน</button>
+              </div>
+    
+</ion-content>

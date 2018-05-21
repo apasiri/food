@@ -1,0 +1,57 @@
+
+<ion-header>
+
+  <ion-navbar color="PK">
+    <ion-title>ข้อมูลรายการอาหาร</ion-title>
+  </ion-navbar>
+
+</ion-header>
+
+
+<ion-content padding>
+  
+    <ion-list>
+  
+        <ion-item color="menu">
+            <h5>(* หากมีการแก้ไขข้อมูลให้กดบันทึกด้านล่าง)</h5>
+        </ion-item>
+        <ion-item>
+          <ion-label floating>ชื่อเมนู (ความยาวไม่เกิน 45 อักษร)</ion-label>
+          <ion-input type="text" [(ngModel)]="menu_name">{{menu_name}}</ion-input>
+        </ion-item>
+        
+        <ion-item>
+          <ion-label floating>จำนวน</ion-label>
+          <ion-input type="text" [(ngModel)]="menu_amount">{{menu_amount}}</ion-input>
+        </ion-item>
+  
+        <ion-item>
+            <ion-label floating>ราคา (เช่น 50 บาท)</ion-label>
+            <ion-input type="text" [(ngModel)]="menu_price">{{menu_price}}</ion-input>
+        </ion-item>
+        <br>
+        <ion-item>
+            <ion-label>วันที่เปิดขาย</ion-label>
+            <ion-datetime displayFormat="DD MMM, YYYY HH:mm" [(ngModel)]="menu_createdate"></ion-datetime>
+        </ion-item>
+        <ion-item>
+          <ion-label floating>สถานะการเปิดขาย</ion-label>
+          <ion-select [(ngModel)]="menu_status">
+              <ion-option value="กำลังเปิดขาย">เปิด</ion-option>
+              <ion-option value="ยังไม่ได้เปิดขาย">ปิด</ion-option>
+          </ion-select>
+      </ion-item>
+        <br>
+    </ion-list>
+      <h6>(* รูปรายการอาหาร)</h6>
+      <ion-row>
+          <img [src]="base64Image" *ngIf="base64Image" noshade="noshade" width="100%" height="100%" size="3">
+          <img [src]="menu_img" *ngIf="!base64Image" noshade="noshade" width="100%" height="100%" size="3">
+      </ion-row>
+    
+    <div padding>
+      <button (click)="doEdit()" ion-button color="btn" block>บันทึกข้อมูล</button>
+    </div>
+
+
+</ion-content>

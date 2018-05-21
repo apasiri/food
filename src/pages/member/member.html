@@ -1,0 +1,48 @@
+<ion-header>
+
+    <ion-navbar color="PK">
+        <button ion-button menuToggle>
+            <ion-icon name="menu"></ion-icon>
+        </button>
+      <ion-title>ข้อมูลสมาชิก</ion-title>
+    </ion-navbar>
+  
+  </ion-header>
+
+
+<ion-content padding>
+
+    <ion-item>
+        <ion-label>เลือกข้อมูลที่ต้องการค้นหาจาก</ion-label>
+        <ion-select [(ngModel)]="selectItems" placeholder="กดเลือก">
+            <ion-option value="user_id">ID</ion-option>
+            <ion-option value="user_store_id">STORE ID</ion-option>
+            <ion-option value="user_phonenumber">เบอร์โทรศัพท์</ion-option>
+            <ion-option value="user_personalID">รหัสบัตรประจำตัวประชาชน</ion-option>
+            <ion-option value="1">สถานะ สมาชิก</ion-option>
+            <ion-option value="2">สถานะ สมาชิก-มีการเปิดร้านค้า</ion-option>
+            <ion-option value="3">สถานะ Admin</ion-option>
+        </ion-select>
+    </ion-item>
+    <ion-searchbar [(ngModel)]="search" type="text"></ion-searchbar>
+    <div padding>
+        <button (click)="SearchItems()" [disabled]="!selectItems" ion-button color="btn" block>ค้นหา</button>
+    </div>
+    <br>
+    <ion-item color="menu" *ngIf="memberList">
+        <h5>(รายการสมาชิก All {{memberList.length }} User ID. )</h5>
+    </ion-item> 
+    <ion-list menuClose ion-item *ngFor="let item of memberSearch">
+        <button menuClose ion-item *ngIf="memberSearch" (click)="changMember(item.user_id)">
+          [ID : {{item.user_id}}] ชื่อสมาชิก : {{item.user_name}}<br>
+          Personal ID : {{item.user_personalID}} 
+        </button>
+    </ion-list>
+    <ion-list menuClose ion-item *ngFor="let item of memberList">
+      <button menuClose ion-item *ngIf="!memberSearch" (click)="changMember(item.user_id)">
+        [ID : {{item.user_id}}] ชื่อสมาชิก : {{item.user_name}}<br>
+        Personal ID : {{item.user_personalID}} 
+      </button>
+    </ion-list>
+
+</ion-content>

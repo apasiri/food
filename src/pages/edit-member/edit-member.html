@@ -1,0 +1,88 @@
+<!--
+  Generated template for the EditMemberPage page.
+
+  See http://ionicframework.com/docs/components/#navigation for more info on
+  Ionic pages and navigation.
+-->
+<ion-header>
+
+  <ion-navbar color="PK">
+    <ion-title>รายละเอียดข้อมูลสมาชิก</ion-title>
+  </ion-navbar>
+
+</ion-header>
+
+
+<ion-content padding>
+
+  <ion-list>
+      <ion-item color="menu">
+          <h5>(* หากมีการแก้ไขข้อมูลให้กดบันทึกด้านล่าง)</h5>
+      </ion-item>
+    <ion-item>
+      <ion-label floating>Username</ion-label>
+      <ion-input type="text" [(ngModel)]="user_username">{{user_username}}</ion-input>
+    </ion-item>
+
+    <ion-item>
+      <ion-label floating>password</ion-label>
+      <ion-input type="text" [(ngModel)]="user_password">{{user_password}}</ion-input>
+    </ion-item>
+
+    <ion-item>
+      <ion-label floating>ชื่อ</ion-label>
+      <ion-input type="text" [(ngModel)]="user_name">{{user_name}}</ion-input>
+    </ion-item>
+    
+    <ion-item>
+        <ion-label floating>เพศ</ion-label>
+        <ion-select [(ngModel)]="user_sex">
+            <ion-option value="หญิง">หญิง</ion-option>
+            <ion-option value="ชาย">ชาย</ion-option>
+        </ion-select>
+    </ion-item>
+
+    <ion-item>
+        <ion-label floating>สถานะร้าน</ion-label>
+        <ion-select [(ngModel)]="store_IsActive">
+            <ion-option value="0">ไม่ถูกระงับ</ion-option>
+            <ion-option value="1">ถูกระงับ</ion-option>
+        </ion-select>
+    </ion-item>
+
+    <ion-item>
+        <ion-label floating>สถานะการเป็นสมาชิก</ion-label>
+        <ion-select [(ngModel)]="user_status">
+            <ion-option value="1">สมาชิก</ion-option>
+            <ion-option value="2">สมาชิก-มีการเปิดร้านค้า</ion-option>
+            <ion-option value="3">Admin</ion-option>
+        </ion-select>
+    </ion-item>
+    
+    <ion-item>
+      <ion-label floating>E-mail</ion-label>
+      <ion-input type="text" [(ngModel)]="user_Email">{{user_Email}}</ion-input>
+    </ion-item>
+
+    <ion-item>
+        <ion-label floating>เบอร์โทรศัพท์</ion-label>
+        <ion-input type="text" [(ngModel)]="user_phone">{{user_phone}}</ion-input>
+    </ion-item>
+    
+    <ion-item>
+      <ion-label floating>รหัสบัตรประชาชน</ion-label>
+      <ion-input type="text" [(ngModel)]="user_personalID">{{user_personalID}}</ion-input>
+    </ion-item>
+    <br>
+  </ion-list>
+  <h6>(* รูปบัตรประจำตัวประชาชน)</h6>
+  <ion-grid>
+      <ion-row justify-content-center align-items-center>
+          <img [src]="img" *ngIf="img" alt="Avatar">
+      </ion-row>
+    </ion-grid>
+  
+  <div padding>
+    <button (click)="doEdit()" ion-button color="btn" block>บันทึกข้อมูล</button>
+  </div>
+</ion-content>

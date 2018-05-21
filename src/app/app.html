@@ -1,0 +1,29 @@
+<ion-menu [content]="content">
+  <ion-header>
+    <ion-toolbar color="PKK">
+      <ion-title>Menu</ion-title>
+    </ion-toolbar>
+  </ion-header>
+
+  <ion-content>
+    <ion-list>
+      <button menuClose ion-item *ngFor="let p of pages" (click)="openPage(p)">
+        <ion-icon name="{{p.icon}}"></ion-icon>
+        {{p.title}}
+      </button>
+      <button menuClose ion-item *ngIf='btnlistlease' (click)="goListlease()"><ion-icon name="md-ribbon"></ion-icon> รายการเช่าร้าน</button>
+      <button menuClose ion-item *ngIf='btnreport' (click)="goReport()"><ion-icon name="md-hammer"></ion-icon> รับเรื่องรายงาน</button>
+      <button menuClose ion-item *ngIf='btnbooking' (click)="gobooking()"><ion-icon name="md-cart"></ion-icon> รายการจอง</button>
+      <button menuClose ion-item *ngIf='btnstore' (click)="goStore()"><ion-icon name="md-restaurant"></ion-icon> ร้านของฉัน</button>
+      <button menuClose ion-item *ngIf='btnbooklist' (click)="gobooklist()"><ion-icon name="md-beer"></ion-icon> รายการสั่งอาหาร</button>
+      <button menuClose ion-item *ngIf='btnreportfrommrmber' (click)="goReportfrommember()"><ion-icon name="md-mail"></ion-icon> เขียนรายงาน</button>
+      <ion-col *ngIf='buttonlogout'>
+          <button menuClose ion-item (click)="logout()"><ion-icon name="md-log-out"></ion-icon> ออกจากระบบ</button>
+      </ion-col>
+    </ion-list>
+  </ion-content>
+
+</ion-menu>
+
+<!-- Disable swipe-to-go-back because it's poor UX to combine STGB with side menus -->
+<ion-nav [root]="rootPage" #content swipeBackEnabled="false"></ion-nav>

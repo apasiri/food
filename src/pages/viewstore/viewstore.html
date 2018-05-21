@@ -1,0 +1,92 @@
+
+<ion-header>
+    <ion-navbar color="PK">
+        <ion-title>{{store_name}}</ion-title>
+            <ion-buttons right>
+                <button ion-button icon-left  (click)="doneOrder()">
+                    <ion-icon name="md-cart" item-right *ngIf="menuid_test">&nbsp;&nbsp;{{menuid_test.length}}</ion-icon>
+                </button>
+            </ion-buttons>
+    </ion-navbar>
+</ion-header>
+
+
+<ion-content padding>
+
+    <ion-list>
+        <ion-grid>
+          <ion-row justify-content-center align-items-center>
+              <img [src]="menu_img" *ngIf="menu_img" alt="Avatar">
+          </ion-row>
+        </ion-grid>
+
+        <ion-item>
+          <ion-label>ชื่อเมนู : {{menu_name}} {{menu_price}} ฿.</ion-label>
+        </ion-item>
+        <ion-item>
+            <ion-label>จำนวนที่ขายคงเหลือ : {{menu_amount}} จาน</ion-label>
+          </ion-item>
+        <div padding>
+            <button ion-button small (click)="bookingfood(menu_id,menu_amount,menu_price,menu_name,store_id)" ><ion-icon name="md-flag"></ion-icon> สั่งจองอาหาร</button>
+            <button ion-button small (click)="navigate(store_latitude,store_longitude)" ><ion-icon name="md-navigate"></ion-icon> Locations Navigator</button>
+        </div>
+        <ion-item menuClose ion-item *ngIf="store_IsActive" color="danger" text-wrap>
+                <ion-label>{{store_IsActive}}</ion-label>
+        </ion-item>
+        <button ion-item >
+            <ion-item>
+                <ion-thumbnail item-start>
+                  <img [src]="store_img" *ngIf="store_img" alt="Avatar">
+                </ion-thumbnail>
+                <h2>STORE ID : {{store_id}}</h2>
+                <p>{{store_name}}</p>
+                <p>{{store_status}}</p>
+              </ion-item>
+        </button>
+    </ion-list>
+
+    <ion-list>
+          <ion-item text-wrap>
+              <ion-label>ที่อยู่ : {{store_address}} ต. {{store_Subarea}} อ. {{store_area}} จ. {{store_Province}}</ion-label>
+          </ion-item>
+          <ion-item text-wrap>
+            <ion-label>ติดต่อ : {{store_contact}}</ion-label>
+          </ion-item>
+    </ion-list>
+    <ion-item color="menu">
+        <ion-label>[รายละเอียดช่องทางการชำระเงินของร้าน]</ion-label>
+    </ion-item>
+    <ion-list menuClose ion-item *ngFor="let payCh of PayChannelList">
+        <button menuClose ion-item>
+            <ion-item text-wrap>
+                <h2>{{payCh.PayChannel_detail}}</h2>
+            </ion-item>
+        </button>
+    </ion-list>
+      <ion-item color="menu">
+        <ion-label>[รายการอาหารในร้าน กดที่รายการหากต้องการเพิ่มการจอง]</ion-label>
+      </ion-item>
+      <ion-list menuClose ion-item *ngFor="let m of menuList">
+            ชื่อเมนู : {{m.menu_name}} {{m.menu_price}} ฿.<br>
+            จำนวนที่ขายคงเหลือ : {{m.menu_amount}} จาน<br>
+            <button ion-button small (click)="bookingfood(m.menu_id,m.menu_amount,m.menu_price,m.menu_name,m.store_id)" ><ion-icon name="md-flag"></ion-icon> สั่งจองอาหาร</button> [{{m.menu_status}}]
+      </ion-list> 
+    <ion-item color="btn">
+        <h5>(ความคิดเห็น)</h5>
+    </ion-item>
+    <ion-item col="300">
+        <ion-label floating>แสดงความคิดเห็น</ion-label>
+        <!--<ion-input type="text" [(ngModel)]="news_story"></ion-input>-->
+        <ion-textarea [(ngModel)]="comment_text"></ion-textarea>
+    </ion-item>
+    <div padding>
+          <button (click)="doneComment(store_id)" ion-button color="btn" block><ion-icon name="md-chatboxes"></ion-icon>&nbsp;&nbsp;เพิ่มความคิดเห็น</button>
+    </div>
+    <ion-list menuClose ion-item *ngFor="let com of commentList">
+        <ion-item text-wrap>
+            <h2>#FromID {{com.comment_user_id}}</h2>
+            <h2>{{com.comment_text}}</h2>
+        </ion-item>
+    </ion-list>
+
+</ion-content>

@@ -1,0 +1,39 @@
+
+<ion-header>
+
+  <ion-navbar color="PK">
+    <ion-title>รายละเอียดรายการสั่งจอง</ion-title>
+  </ion-navbar>
+
+</ion-header>
+
+
+<ion-content padding>
+
+    <ion-item color="menu">
+        <ion-label>[รายการสั่งจองอาหาร]</ion-label>
+    </ion-item>
+    <br>
+    <ion-item>
+        <h3>ราคารวมต้องชำระ : {{total}} บาท</h3>
+        <button ion-button small (click)="confirm(payment_id)" ><ion-icon name="md-create"></ion-icon> ยืนยันการจอง</button>
+    </ion-item>
+    <ion-item>
+        <ion-label>Order Time : </ion-label>
+        <ion-datetime displayFormat="DD MMM, YYYY HH:mm" [(ngModel)]="time"></ion-datetime>
+    </ion-item>
+    <ion-grid>
+        <ion-row justify-content-center align-items-center>
+            <img [src]="img" *ngIf="img" alt="Avatar">
+        </ion-row>
+      </ion-grid>
+    <ion-list menuClose ion-item *ngFor="let orders of detailList">
+      <ion-item>
+          <h2>{{orders.detai_menu_name}}</h2><br>
+          <h3>สั่งซื้อ : {{orders.detail_menu_amount}} รายการ | ราคา : {{orders.detail_menu_price}} บาท</h3>
+      </ion-item>
+    </ion-list>
+
+    
+
+</ion-content>

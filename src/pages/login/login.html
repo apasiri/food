@@ -1,0 +1,43 @@
+<ion-header>
+
+  <ion-navbar color="PK">
+      <button ion-button menuToggle>
+          <ion-icon name="menu"></ion-icon>
+      </button>
+    <ion-title>เข้าสู่ระบบ</ion-title>
+  </ion-navbar>
+
+</ion-header>
+
+
+<ion-content padding>
+
+  <ion-list>
+      <ion-grid>
+          <ion-row>
+            <ion-col>
+              
+            </ion-col>
+            <ion-col class="accordion">
+              <img src="https://www.picz.in.th/images/2018/04/12/YTY561.png" border="0" />
+            </ion-col>
+            <ion-col>
+              
+            </ion-col>
+          </ion-row>
+        </ion-grid>
+    
+    <ion-item>
+      <ion-input placeholder="Username" type="text" [(ngModel)]="username" onpaste="return false;"></ion-input>
+    </ion-item>
+    <br>
+    <ion-item>
+      <ion-input placeholder="Password" type="password" [(ngModel)]="password"></ion-input>
+    </ion-item>
+  
+  </ion-list>
+
+    <div padding>
+      <button (click)="goLogin()" [disabled]="!username || !password" ion-button color="btn" block>เข้าสู่ระบบ</button>
+    </div>
+</ion-content>

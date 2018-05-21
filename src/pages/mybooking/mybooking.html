@@ -1,0 +1,21 @@
+<ion-header>
+
+    <ion-navbar color="PK">
+        <button ion-button menuToggle>
+            <ion-icon name="menu"></ion-icon>
+        </button>
+      <ion-title>รายการจอง</ion-title>
+    </ion-navbar>
+  
+  </ion-header>
+
+
+<ion-content padding>
+      <ion-list menuClose ion-item *ngFor="let b of bookingList">
+            <button menuClose ion-item (click)="selectbook(b.order_id,b.order_store_id,b.order_payment_id)">
+              Order ID : {{b.order_id}}<br>
+              Store ID : {{b.order_store_id}}<br>
+              สถานะการสั่งจอง : {{b.order_payment_id_new}}
+            </button>
+      </ion-list>
+</ion-content>

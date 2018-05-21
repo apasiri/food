@@ -1,0 +1,65 @@
+<ion-header>
+
+    <ion-navbar color="PK">
+        <button ion-button menuToggle>
+            <ion-icon name="menu"></ion-icon>
+        </button>
+      <ion-title>อัพเดตข่าวสาร</ion-title>
+    </ion-navbar>
+  
+  </ion-header>
+
+
+<ion-content padding>
+
+    <ion-item color="menu">
+        <h5>(อัพเดตรายการข่าวสาร)</h5>
+    </ion-item> 
+    <ion-list>
+      <ion-item>
+        <ion-label floating>หัวเรื่อง (ข้อความไม่เกิน 45 อักษร)</ion-label>
+        <ion-input type="text" [(ngModel)]="news_topic"></ion-input>
+      </ion-item>
+      
+      <ion-item>
+          <ion-label floating>รายละเอียด</ion-label>
+          <!--<ion-input type="text" [(ngModel)]="news_story"></ion-input>-->
+          <ion-textarea [(ngModel)]="news_story"></ion-textarea>
+      </ion-item>
+    </ion-list>
+    <ion-item>
+      <h6>(* เพิ่มรูปประกอบข่าวสาร)</h6>
+    </ion-item>  
+    <ion-row>
+        <img [src]="base64Image" *ngIf="base64Image" noshade="noshade" width="100%" height="100%" size="3">
+        <img *ngIf="!base64Image" noshade="noshade" width="100%" height="100%" size="3">
+    <button ion-button icon-left clear small (click)="takePicture()">
+        <ion-icon name="camera"></ion-icon>
+        <div>Camera</div>
+      </button>     
+      <button ion-button icon-left clear small (click)="browsePicture()">
+        <ion-icon name="folder-open"></ion-icon>
+        <div>Browse</div>
+      </button>
+      <button ion-button icon-left clear small color="danger" 
+      (click)="removePicture()" [disabled]="!base64Image">
+        <ion-icon name="trash"></ion-icon>
+        <div>Remove</div>
+      </button>
+    </ion-row>
+    
+    <div padding>
+        <button (click)="addNews()" ion-button color="btn" [disabled]="!news_topic || !news_story" block><ion-icon name="md-add-circle"></ion-icon> อัพเดตข่าวสารใหม่</button>
+    </div>
+
+    <ion-item color="menu">
+        <h5>(รายการข่าวสาร)</h5>
+    </ion-item> 
+    <ion-list menuClose ion-item *ngFor="let n of newsList">
+      <button menuClose ion-item (click)="changNews(n.news_id)">
+        เรื่อง : {{n.news_topic}}<br>
+        Admin ID : {{n.news_user_id}}
+      </button>
+    </ion-list>
+
+</ion-content>

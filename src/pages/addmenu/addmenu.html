@@ -1,0 +1,61 @@
+
+<ion-header>
+
+  <ion-navbar color="PK">
+    <ion-title>เพิ่มรายการอาหาร</ion-title>
+  </ion-navbar>
+
+</ion-header>
+
+
+<ion-content padding>
+
+    <ion-list>
+  
+        <ion-item color="menu">
+            <h5>(* กรอกข้อมูลให้ครบเพื่อเพิ่มรายการอาหารของร้าน)</h5>
+        </ion-item>
+        <ion-item>
+          <ion-label floating>ชื่อเมนู (ความยาวไม่เกิน 45 อักษร)</ion-label>
+          <ion-input type="text" [(ngModel)]="menu_name"></ion-input>
+        </ion-item>
+        
+        <ion-item>
+          <ion-label floating>จำนวน</ion-label>
+          <ion-input type="text" [(ngModel)]="menu_amount"></ion-input>
+        </ion-item>
+  
+        <ion-item>
+            <ion-label floating>ราคา (เช่น 50 บาท)</ion-label>
+            <ion-input type="text" [(ngModel)]="menu_price"></ion-input>
+        </ion-item>
+        <br>
+        <ion-item>
+            <ion-label>วันที่เปิดขาย</ion-label>
+            <ion-datetime displayFormat="DD MMM, YYYY HH:mm" [(ngModel)]="menu_createdate"></ion-datetime>
+        </ion-item>
+        <br>
+      </ion-list>
+      <h6>(* เพิ่มรูปถ่ายอาหาร)</h6>
+      <ion-row>
+          <img [src]="base64Image" *ngIf="base64Image" noshade="noshade" width="100%" height="100%" size="3">
+          <img *ngIf="!base64Image" noshade="noshade" width="100%" height="100%" size="3">
+      <button ion-button icon-left clear small (click)="takePicture()">
+          <ion-icon name="camera"></ion-icon>
+          <div>Camera</div>
+        </button>     
+        <button ion-button icon-left clear small (click)="browsePicture()">
+          <ion-icon name="folder-open"></ion-icon>
+          <div>Browse</div>
+        </button>
+        <button ion-button icon-left clear small color="danger" 
+        (click)="removePicture()" [disabled]="!base64Image">
+          <ion-icon name="trash"></ion-icon>
+          <div>Remove</div>
+        </button>
+      </ion-row>
+      <div padding>
+        <button (click)="doAddMenu()" [disabled]="!menu_name || !menu_amount || !menu_price || !menu_createdate " ion-button color="btn" block>เพิ่มรายการอาหาร</button>
+      </div>
+
+</ion-content>
